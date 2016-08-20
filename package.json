@@ -1,0 +1,20 @@
+{
+  "name": "node-holidayapi",
+  "version": "0.0.0",
+  "description": "Official Node.js library for Holiday API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshtronic/node-holidayapi.git"
+  },
+  "keywords": [ "holiday", "holidays", "holidayapi" ],
+  "author": "Josh Sherman <hello@holidayapi.com> (https://holidayapi.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshtronic/node-holidayapi/issues"
+  },
+  "homepage": "https://holidayapi.com"
+}
