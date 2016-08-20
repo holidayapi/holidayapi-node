@@ -10,8 +10,8 @@ npm install --save node-holidayapi
 ## Usage
 
 ```javascript
-var hapi = require('node-holidayapi');
-var Hapi = new HolidayAPI('_YOUR_API_KEY').v1;
+var HolidayAPI = require('node-holidayapi');
+var hapi = new HolidayAPI('_YOUR_API_KEY').v1;
 
 var parameters = {
   // Required
@@ -26,7 +26,7 @@ var parameters = {
   // pretty:   true,
 };
 
-var Hapi.holidays(parameters, function (err, data) {
+var hapi.holidays(parameters, function (err, data) {
   // Insert awesome code here...
 });
 ```
