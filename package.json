@@ -1,6 +1,6 @@
 {
   "name": "node-holidayapi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Official Node.js library for Holiday API",
   "main": "index.js",
   "scripts": {
