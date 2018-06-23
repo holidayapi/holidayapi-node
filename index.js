@@ -1,6 +1,7 @@
 'use strict';
 
-var https = require('https');
+const https = require('https');
+const qs = require('querystring');
 
 var HolidayAPI = function (key) {
   if ('undefined' !== typeof key) {
@@ -11,16 +12,13 @@ var HolidayAPI = function (key) {
 HolidayAPI.prototype.v1 = {};
 
 HolidayAPI.prototype.v1.holidays = function (parameters, callback) {
-  var url = 'https://holidayapi.com/v1/holidays';
-  var querystring = '?key=' + HolidayAPI.prototype.key;
-
-  if ('object' === typeof parameters) {
-    for (var parameter in parameters) {
-      querystring += '&' + parameter + '=' + parameters[parameter];
-    }
-  }
-
-  url += querystring;
+  const querystringObject = Object.assign(
+    {},
+    {key: HolidayAPI.prototype.key},
+    parameters,
+  )
+  const querystring = qs.stringify(querystringObject);
+  const url = `https://holidayapi.com/v1/holidays?${querystring}`;
 
   https.get(url, function (res) {
     res.on('data', function (data) {
