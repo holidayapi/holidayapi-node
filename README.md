@@ -3,7 +3,7 @@
 Official Node.js library for [Holiday API](https://holidayapi.com)
 
 [![License](https://img.shields.io/npm/l/node-holidayapi?style=for-the-badge)](https://github.com/holidayapi/node-holidayapi/blob/master/LICENSE)
-![Node Version](https://img.shields.io/node/v/node-holidayapi?style=for-the-badge)
+![Node Version](https://img.shields.io/node/v/holidayapi?style=for-the-badge)
 ![Build Status](https://img.shields.io/travis/holidayapi/node-holidayapi/master?style=for-the-badge)
 [![Coverage Status](https://img.shields.io/coveralls/github/holidayapi/node-holidayapi/master?style=for-the-badge)](https://coveralls.io/github/holidayapi/node-holidayapi?branch=master)
 
