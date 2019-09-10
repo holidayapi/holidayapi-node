@@ -1,5 +1,5 @@
 {
-  "name": "node-holidayapi",
+  "name": "holidayapi",
   "version": "2.0.0",
   "description": "Official Node.js library for Holiday API",
   "main": "dist/index.js",

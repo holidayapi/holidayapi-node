@@ -11,16 +11,16 @@ Official Node.js library for [Holiday API](https://holidayapi.com)
 
 ```shell
 # NPM
-npm install --save node-holidayapi
+npm install --save holidayapi
 
 # Yarn
-yarn add node-holidayapi
+yarn add holidayapi
 ```
 
 ## Usage
 
 ```javascript
-import { HolidayAPI } from 'node-holidayapi';
+import { HolidayAPI } from 'holidayapi';
 
 const key = 'Insert your API key here';
 const holidayApi = new HolidayAPI({ key });
