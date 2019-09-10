@@ -1,20 +1,49 @@
 {
   "name": "node-holidayapi",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Official Node.js library for Holiday API",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joshtronic/node-holidayapi.git"
+    "url": "git+https://github.com/holidayapi/node-holidayapi.git"
   },
-  "keywords": [ "holiday", "holidays", "holidayapi" ],
+  "keywords": [
+    "calendar",
+    "holiday",
+    "holidays",
+    "holidayapi"
+  ],
   "author": "Josh Sherman <hello@holidayapi.com> (https://holidayapi.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joshtronic/node-holidayapi/issues"
+    "url": "https://github.com/holidayapi/node-holidayapi/issues"
   },
-  "homepage": "https://holidayapi.com"
+  "homepage": "https://holidayapi.com",
+  "engines": {
+    "node": ">= 7.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/nock": "^10.0.3",
+    "@types/node": "^12.7.4",
+    "@types/node-fetch": "^2.5.0",
+    "@typescript-eslint/eslint-plugin": "^2.2.0",
+    "@typescript-eslint/parser": "^2.2.0",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "jest": "^24.9.0",
+    "nock": "^10.0.6",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "scripts": {
+    "test": "jest --coverage --coverageReporters=text-lcov | coveralls"
+  }
 }
