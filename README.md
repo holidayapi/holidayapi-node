@@ -1,11 +1,23 @@
-# node-holidayapi
-
-Official Node.js library for [Holiday API](https://holidayapi.com)
+# Holiday API Node.js Library
 
 [![License](https://img.shields.io/npm/l/node-holidayapi?style=for-the-badge)](https://github.com/holidayapi/node-holidayapi/blob/master/LICENSE)
 ![Node Version](https://img.shields.io/node/v/holidayapi?style=for-the-badge)
 ![Build Status](https://img.shields.io/travis/holidayapi/node-holidayapi/master?style=for-the-badge)
 [![Coverage Status](https://img.shields.io/coveralls/github/holidayapi/node-holidayapi/master?style=for-the-badge)](https://coveralls.io/github/holidayapi/node-holidayapi?branch=master)
+
+Official Node.js library for [Holiday API](https://holidayapi.com) providing
+quick and easy access to holiday information from applications written in
+server-side JavaScript.
+
+Please note, version 2.x of this library is a full rewrite of the 1.x series in
+TypeScript. The interfacing to the library has been simplified and existing
+applications upgrading to 2.x will need some massaging. Sorry for any
+inconvenience.
+
+## Documentation
+
+Full documentation of the Holiday API endpoints is available
+[here](https://holidayapi.com/docs).
 
 ## Installation
 

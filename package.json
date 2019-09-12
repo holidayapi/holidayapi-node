@@ -1,12 +1,12 @@
 {
   "name": "holidayapi",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Official Node.js library for Holiday API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/holidayapi/node-holidayapi.git"
+    "url": "git+https://github.com/holidayapi/holidayapi-node.git"
   },
   "keywords": [
     "calendar",
@@ -17,7 +17,7 @@
   "author": "Josh Sherman <hello@holidayapi.com> (https://holidayapi.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/holidayapi/node-holidayapi/issues"
+    "url": "https://github.com/holidayapi/holidayapi-node/issues"
   },
   "homepage": "https://holidayapi.com",
   "engines": {
