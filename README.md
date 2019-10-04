@@ -1,18 +1,28 @@
 # Holiday API Node.js Library
 
-[![License](https://img.shields.io/npm/l/node-holidayapi?style=for-the-badge)](https://github.com/holidayapi/node-holidayapi/blob/master/LICENSE)
+[![License](https://img.shields.io/npm/l/holidayapi-node?style=for-the-badge)](https://github.com/holidayapi/holidayapi-node/blob/master/LICENSE)
 ![Node Version](https://img.shields.io/node/v/holidayapi?style=for-the-badge)
-![Build Status](https://img.shields.io/travis/holidayapi/node-holidayapi/master?style=for-the-badge)
-[![Coverage Status](https://img.shields.io/coveralls/github/holidayapi/node-holidayapi/master?style=for-the-badge)](https://coveralls.io/github/holidayapi/node-holidayapi?branch=master)
+![Build Status](https://img.shields.io/travis/holidayapi/holidayapi-node/master?style=for-the-badge)
+[![Coverage Status](https://img.shields.io/coveralls/github/holidayapi/holidayapi-node/master?style=for-the-badge)](https://coveralls.io/github/holidayapi/holidayapi-node?branch=master)
 
 Official Node.js library for [Holiday API](https://holidayapi.com) providing
 quick and easy access to holiday information from applications written in
 server-side JavaScript.
 
+## Migrating from 1.x
+
 Please note, version 2.x of this library is a full rewrite of the 1.x series in
 TypeScript. The interfacing to the library has been simplified and existing
-applications upgrading to 2.x will need some massaging. Sorry for any
-inconvenience.
+applications upgrading to 2.x will need to be updated.
+
+| Version 1.x Syntax (Old)                          | Version 2.x Syntax (New)                          |
+|---------------------------------------------------|---------------------------------------------------|
+| `const HolidayAPI = require('node-holidayapi');`  | `import { HolidayAPI } from 'holidayapi';`        |
+| `const holidayApi = new HolidayAPI(key).v1;`      | `const holidayApi = new HolidayAPI({ key });`     |
+| `holidayApi.holidays(params, (err, data) => {});` | `holidayApi.holidays(params).then((data) => {});` |
+
+Version 1.x of the library can still be found
+[here](https://github.com/joshtronic/node-holidayapi).
 
 ## Documentation
 
@@ -70,7 +80,41 @@ holidayApi.holidays({ country: 'US', year: 2019 });
 
 ## Examples
 
-### Fetch holidays for a specific year
+### Countries
+
+#### Fetch all supported countries
+
+```javascript
+holidayApi.countries();
+```
+
+#### Search for a country by code or name
+
+```javascript
+holidayApi.countries({
+  search: 'united',
+});
+```
+
+### Languages
+
+#### Fetch all supported languages
+
+```javascript
+holidayApi.languages();
+```
+
+#### Search for a language by code or name
+
+```javascript
+holidayApi.language({
+  search: 'Chinese',
+});
+```
+
+### Holidays
+
+#### Fetch holidays for a specific year
 
 ```javascript
 holidayApi.holidays({
@@ -79,7 +123,7 @@ holidayApi.holidays({
 });
 ```
 
-### Fetch holidays for a specific month
+#### Fetch holidays for a specific month
 
 ```javascript
 holidayApi.holidays({
@@ -89,7 +133,7 @@ holidayApi.holidays({
 });
 ```
 
-### Fetch holidays for a specific day
+#### Fetch holidays for a specific day
 
 ```javascript
 holidayApi.holidays({
@@ -100,7 +144,7 @@ holidayApi.holidays({
 });
 ```
 
-### Fetch upcoming holidays based on a specific date
+#### Fetch upcoming holidays based on a specific date
 
 ```javascript
 holidayApi.holidays({
@@ -112,7 +156,7 @@ holidayApi.holidays({
 });
 ```
 
-### Fetch previous holidays based on a specific date
+#### Fetch previous holidays based on a specific date
 
 ```javascript
 holidayApi.holidays({
@@ -124,7 +168,7 @@ holidayApi.holidays({
 });
 ```
 
-### Fetch only public holidays
+#### Fetch only public holidays
 
 ```javascript
 holidayApi.holidays({
@@ -134,7 +178,7 @@ holidayApi.holidays({
 });
 ```
 
-### Fetch holidays for a specific subdivision
+#### Fetch holidays for a specific subdivision
 
 ```javascript
 holidayApi.holidays({
@@ -143,7 +187,7 @@ holidayApi.holidays({
 });
 ```
 
-### Include subdivision holidays with countrywide holidays
+#### Include subdivision holidays with countrywide holidays
 
 ```javascript
 holidayApi.holidays({
@@ -153,7 +197,7 @@ holidayApi.holidays({
 });
 ```
 
-### Search for a holiday by name
+#### Search for a holiday by name
 
 ```javascript
 holidayApi.holidays({
@@ -163,7 +207,7 @@ holidayApi.holidays({
 });
 ```
 
-### Translate holidays to another language
+#### Translate holidays to another language
 
 ```javascript
 holidayApi.holidays({
@@ -173,7 +217,7 @@ holidayApi.holidays({
 });
 ```
 
-### Fetch holidays for multiple countries
+#### Fetch holidays for multiple countries
 
 ```javascript
 holidayApi.holidays({
