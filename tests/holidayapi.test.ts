@@ -93,6 +93,47 @@ describe('holidayapi', () => {
         expect(await holidayapi.countries()).toStrictEqual(expectedResponse);
       });
 
+      it('should search countries', async () => {
+        const expectedResponse = {
+          status: 200,
+          requests: {
+            used: 1000,
+            available: 9000,
+            resets: '2019-10-01 00:00:00',
+          },
+          countries: [
+            {
+              code: 'ST',
+              name: 'Sao Tome and Principe',
+              languages: ['pt'],
+              codes: {
+                'alpha-2': 'ST',
+                'alpha-3': 'STP',
+                numeric: 678,
+              },
+              flag: 'https://www.countryflags.io/ST/flat/64.png',
+              subdivisions: [
+                {
+                  code: 'ST-P',
+                  name: 'Príncipe',
+                  languages: ['pt'],
+                },
+                {
+                  code: 'ST-S',
+                  name: 'São Tomé',
+                  languages: ['pt'],
+                },
+              ],
+            },
+          ],
+        };
+
+        mockRequest.get(`${basePath}&search=Sao`).reply(200, expectedResponse);
+        expect(await holidayapi.countries({
+          search: 'Sao',
+        })).toStrictEqual(expectedResponse);
+      });
+
       it('should raise 4xx errors', async () => {
         const expectedResponse = {
           status: 429,
@@ -162,6 +203,46 @@ describe('holidayapi', () => {
           year: 2019,
           month: 7,
           day: 4,
+        })).toStrictEqual(expectedResponse);
+      });
+
+      it('should search holidays', async () => {
+        const expectedResponse = {
+          status: 200,
+          requests: {
+            used: 1000,
+            available: 9000,
+            resets: '2019-10-01 00:00:00',
+          },
+          holidays: [
+            {
+              name: 'Independence Day',
+              date: '2015-07-04',
+              observed: '2015-07-03',
+              public: true,
+              country: 'US',
+              uuid: '88268759-9b90-468c-804f-b729b8418e7c',
+              weekday: {
+                date: {
+                  name: 'Saturday',
+                  numeric: '6',
+                },
+                observed: {
+                  name: 'Friday',
+                  numeric: '5',
+                },
+              },
+            },
+          ],
+        };
+
+        mockRequest.get(`${basePath}&country=US&year=2019&search=Independence`)
+          .reply(200, expectedResponse);
+
+        expect(await holidayapi.holidays({
+          country: 'US',
+          year: 2019,
+          search: 'Independence',
         })).toStrictEqual(expectedResponse);
       });
 
@@ -266,6 +347,32 @@ describe('holidayapi', () => {
 
         mockRequest.get(basePath).reply(200, expectedResponse);
         expect(await holidayapi.languages()).toStrictEqual(expectedResponse);
+      });
+
+      it('should search languages', async () => {
+        const expectedResponse = {
+          status: 200,
+          requests: {
+            used: 1000,
+            available: 9000,
+            resets: '2019-10-01 00:00:00',
+          },
+          languages: [
+            {
+              code: 'hi',
+              name: 'Hindi',
+            },
+            {
+              code: 'zh',
+              name: 'Chinese (Simplified)',
+            },
+          ],
+        };
+
+        mockRequest.get(`${basePath}&search=in`).reply(200, expectedResponse);
+        expect(await holidayapi.languages({
+          search: 'in',
+        })).toStrictEqual(expectedResponse);
       });
 
       it('should raise 4xx errors', async () => {

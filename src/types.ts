@@ -8,24 +8,24 @@
 export type Endpoint = 'countries' | 'holidays' | 'languages';
 
 export type Request = {
-  key?: string,
   format?: 'csv' | 'json' | 'php' | 'tsv' | 'yaml' | 'xml',
+  key?: string,
   pretty?: boolean,
+  search?: string,
 };
 
 export type Requests = Request | HolidaysRequest;
 
 export type HolidaysRequest = Request & {
   country?: string,
-  year?: number,
   day?: number,
-  month?: number,
   language?: string,
+  month?: number,
   previous?: boolean,
   public?: boolean,
-  search?: string,
   subdivisions?: boolean,
   upcoming?: boolean,
+  year?: number,
 };
 
 export type Response = {

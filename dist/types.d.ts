@@ -1,21 +1,21 @@
 export declare type Endpoint = 'countries' | 'holidays' | 'languages';
 export declare type Request = {
-    key?: string;
     format?: 'csv' | 'json' | 'php' | 'tsv' | 'yaml' | 'xml';
+    key?: string;
     pretty?: boolean;
+    search?: string;
 };
 export declare type Requests = Request | HolidaysRequest;
 export declare type HolidaysRequest = Request & {
     country?: string;
-    year?: number;
     day?: number;
-    month?: number;
     language?: string;
+    month?: number;
     previous?: boolean;
     public?: boolean;
-    search?: string;
     subdivisions?: boolean;
     upcoming?: boolean;
+    year?: number;
 };
 export declare type Response = {
     requests: {
