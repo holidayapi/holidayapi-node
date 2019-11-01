@@ -1,6 +1,6 @@
 {
   "name": "holidayapi",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Official Node.js library for Holiday API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,24 +21,24 @@
   },
   "homepage": "https://holidayapi.com",
   "engines": {
-    "node": ">= 7.0.0"
+    "node": ">= 8.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/nock": "^10.0.3",
-    "@types/node": "^12.7.11",
-    "@types/node-fetch": "^2.5.2",
-    "@typescript-eslint/eslint-plugin": "^2.3.2",
-    "@typescript-eslint/parser": "^2.3.2",
-    "coveralls": "^3.0.6",
-    "eslint": "^6.5.1",
+    "@types/jest": "^24.0.22",
+    "@types/nock": "^11.1.0",
+    "@types/node": "^12.12.7",
+    "@types/node-fetch": "^2.5.3",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-jest": "^23.0.3",
     "jest": "^24.9.0",
-    "nock": "^10.0.6",
+    "nock": "^11.7.0",
     "ts-jest": "^24.1.0",
-    "typescript": "^3.6.3"
+    "typescript": "^3.7.2"
   },
   "dependencies": {
     "node-fetch": "^2.6.0"

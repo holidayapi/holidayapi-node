@@ -9,6 +9,21 @@ Official Node.js library for [Holiday API](https://holidayapi.com) providing
 quick and easy access to holiday information from applications written in
 server-side JavaScript.
 
+## Migrating from 2.x
+
+In an attempt to stay current with both our development and production
+dependencies, the decision was made to drop testing and advertised compatibility
+with Node.js versions that are outside of their maintenance window.
+
+For the 3.x release, testing for Node.js 13.x was added while testing for Node.js
+7.x, 9.x and 11.x was dropped. Even though these older versions may still
+continue to work, they become harder to test against as our dependencies improve
+and drop support for those versions.
+
+In the future, when compatibility changes, we will increment the major version
+number of the release as well as document the additions and deprecations in the
+release notes.
+
 ## Migrating from 1.x
 
 Please note, version 2.x of this library is a full rewrite of the 1.x series in
@@ -53,12 +68,12 @@ holidayApi.countries()
   .catch((err) => { console.error(err); });
 
 // Fetch supported languages
-holidayApi.languages();
+holidayApi.languages()
   .then((languages) => { console.log(languages); })
   .catch((err) => { console.error(err); });
 
 // Fetch holidays with minimum parameters
-holidayApi.holidays({ country: 'US', year: 2019 });
+holidayApi.holidays({ country: 'US', year: 2019 })
   .then((holidays) => { console.log(holidays); })
   .catch((err) => { console.error(err); });
 
