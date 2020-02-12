@@ -7,14 +7,18 @@
 
 export type Endpoint = 'countries' | 'holidays' | 'languages';
 
-export type Request = {
+type Request = {
   format?: 'csv' | 'json' | 'php' | 'tsv' | 'yaml' | 'xml',
   key?: string,
   pretty?: boolean,
   search?: string,
 };
 
-export type Requests = Request | HolidaysRequest;
+export type Requests = CountriesRequest | HolidaysRequest | LanguagesRequest;
+
+export type CountriesRequest = Request & {
+  country?: string,
+};
 
 export type HolidaysRequest = Request & {
   country?: string,
@@ -26,6 +30,10 @@ export type HolidaysRequest = Request & {
   subdivisions?: boolean,
   upcoming?: boolean,
   year?: number,
+};
+
+export type LanguagesRequest = Request & {
+  language?: string,
 };
 
 export type Response = {

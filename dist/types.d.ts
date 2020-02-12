@@ -1,11 +1,14 @@
 export declare type Endpoint = 'countries' | 'holidays' | 'languages';
-export declare type Request = {
+declare type Request = {
     format?: 'csv' | 'json' | 'php' | 'tsv' | 'yaml' | 'xml';
     key?: string;
     pretty?: boolean;
     search?: string;
 };
-export declare type Requests = Request | HolidaysRequest;
+export declare type Requests = CountriesRequest | HolidaysRequest | LanguagesRequest;
+export declare type CountriesRequest = Request & {
+    country?: string;
+};
 export declare type HolidaysRequest = Request & {
     country?: string;
     day?: number;
@@ -16,6 +19,9 @@ export declare type HolidaysRequest = Request & {
     subdivisions?: boolean;
     upcoming?: boolean;
     year?: number;
+};
+export declare type LanguagesRequest = Request & {
+    language?: string;
 };
 export declare type Response = {
     requests: {
@@ -62,3 +68,4 @@ export declare type LanguagesResponse = Response & {
         name: string;
     }[];
 };
+export {};
