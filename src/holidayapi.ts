@@ -8,8 +8,8 @@
 import fetch from 'node-fetch';
 import { URL, URLSearchParams } from 'url';
 import {
-  CountriesResponse, Endpoint, HolidaysResponse, HolidaysRequest,
-  LanguagesResponse, Request, Requests, Responses,
+  CountriesRequest, CountriesResponse, Endpoint, HolidaysResponse,
+  HolidaysRequest, LanguagesRequest, LanguagesResponse, Requests, Responses,
 } from './types';
 
 export class HolidayAPI {
@@ -61,7 +61,7 @@ export class HolidayAPI {
     return payload;
   }
 
-  async countries(request?: Request): Promise<CountriesResponse> {
+  async countries(request?: CountriesRequest): Promise<CountriesResponse> {
     return this.request('countries', request);
   }
 
@@ -77,7 +77,7 @@ export class HolidayAPI {
     return this.request('holidays', request);
   }
 
-  async languages(request?: Request): Promise<LanguagesResponse> {
+  async languages(request?: LanguagesRequest): Promise<LanguagesResponse> {
     return this.request('languages', request);
   }
 }

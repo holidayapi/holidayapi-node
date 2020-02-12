@@ -93,6 +93,47 @@ describe('holidayapi', () => {
         expect(await holidayapi.countries()).toStrictEqual(expectedResponse);
       });
 
+      it('should return one country', async () => {
+        const expectedResponse = {
+          status: 200,
+          requests: {
+            used: 1000,
+            available: 9000,
+            resets: '2019-10-01 00:00:00',
+          },
+          countries: [
+            {
+              code: 'ST',
+              name: 'Sao Tome and Principe',
+              languages: ['pt'],
+              codes: {
+                'alpha-2': 'ST',
+                'alpha-3': 'STP',
+                numeric: 678,
+              },
+              flag: 'https://www.countryflags.io/ST/flat/64.png',
+              subdivisions: [
+                {
+                  code: 'ST-P',
+                  name: 'Príncipe',
+                  languages: ['pt'],
+                },
+                {
+                  code: 'ST-S',
+                  name: 'São Tomé',
+                  languages: ['pt'],
+                },
+              ],
+            },
+          ],
+        };
+
+        mockRequest.get(`${basePath}&country=ST`).reply(200, expectedResponse);
+        expect(await holidayapi.countries({
+          country: 'ST',
+        })).toStrictEqual(expectedResponse);
+      });
+
       it('should search countries', async () => {
         const expectedResponse = {
           status: 200,
@@ -347,6 +388,28 @@ describe('holidayapi', () => {
 
         mockRequest.get(basePath).reply(200, expectedResponse);
         expect(await holidayapi.languages()).toStrictEqual(expectedResponse);
+      });
+
+      it('should return one language', async () => {
+        const expectedResponse = {
+          status: 200,
+          requests: {
+            used: 1000,
+            available: 9000,
+            resets: '2019-10-01 00:00:00',
+          },
+          languages: [
+            {
+              code: 'hi',
+              name: 'Hindi',
+            },
+          ],
+        };
+
+        mockRequest.get(`${basePath}&language=hi`).reply(200, expectedResponse);
+        expect(await holidayapi.languages({
+          language: 'hi',
+        })).toStrictEqual(expectedResponse);
       });
 
       it('should search languages', async () => {

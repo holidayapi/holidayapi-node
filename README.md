@@ -103,7 +103,15 @@ holidayApi.holidays({ country: 'US', year: 2019 })
 holidayApi.countries();
 ```
 
-#### Search for a country by code or name
+#### Fetch a supported country by code
+
+```javascript
+holidayApi.countries({
+  country: 'NO',
+});
+```
+
+#### Search for countries by code or name
 
 ```javascript
 holidayApi.countries({
@@ -119,7 +127,15 @@ holidayApi.countries({
 holidayApi.languages();
 ```
 
-#### Search for a language by code or name
+#### Fetch a supported language by code
+
+```javascript
+holidayApi.language({
+  language: 'es',
+});
+```
+
+#### Search for languages by code or name
 
 ```javascript
 holidayApi.language({

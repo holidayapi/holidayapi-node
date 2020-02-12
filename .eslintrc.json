@@ -1,35 +1,44 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "jest/globals": true,
-        "node": true
-    },
-    "extends": [
-        "airbnb-base",
-        "plugin:import/typescript"
+  "env": {
+    "es6": true,
+    "jest/globals": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:import/typescript"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "jest"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
     ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "plugins": [
-      "@typescript-eslint",
-      "jest"
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.test.ts"]
+      }
     ],
-    "rules": {
-      "@typescript-eslint/no-unused-vars": "error",
-      "import/no-extraneous-dependencies": [
-        "error",
-        { "devDependencies": ["**/*.test.ts"] }
-      ],
-      "import/prefer-default-export": "off",
-      "lines-between-class-members": "off",
-      "no-unused-vars": "off"
-    }
+    "import/prefer-default-export": "off",
+    "lines-between-class-members": "off",
+    "no-unused-vars": "off"
+  }
 }
