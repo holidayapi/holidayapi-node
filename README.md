@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/npm/l/holidayapi-node?style=for-the-badge)](https://github.com/holidayapi/holidayapi-node/blob/master/LICENSE)
 ![Node Version](https://img.shields.io/node/v/holidayapi?style=for-the-badge)
 ![Build Status](https://img.shields.io/travis/holidayapi/holidayapi-node/master?style=for-the-badge)
-[![Coverage Status](https://img.shields.io/coveralls/github/holidayapi/holidayapi-node/master?style=for-the-badge)](https://coveralls.io/github/holidayapi/holidayapi-node?branch=master)
+[![Coverage Status](https://img.shields.io/coveralls/github/holidayapi/holidayapi-node/master?style=for-the-badge)](https://coveralls.io/github/holidayapi/holidayapi-node?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/holidayapi/holidayapi-node.svg)](https://greenkeeper.io/)
 
 Official Node.js library for [Holiday API](https://holidayapi.com) providing
 quick and easy access to holiday information from applications written in
