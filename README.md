@@ -103,6 +103,14 @@ holidayApi.holidays({ country: 'US', year: 2019 })
 holidayApi.countries();
 ```
 
+#### Fetch only countries with public holidays
+
+```javascript
+holidayApi.countries({
+  public: true,
+});
+```
+
 #### Fetch a supported country by code
 
 ```javascript
