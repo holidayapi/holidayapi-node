@@ -8,6 +8,7 @@ declare type Request = {
 export declare type Requests = CountriesRequest | HolidaysRequest | LanguagesRequest;
 export declare type CountriesRequest = Request & {
     country?: string;
+    public?: boolean;
 };
 export declare type HolidaysRequest = Request & {
     country?: string;

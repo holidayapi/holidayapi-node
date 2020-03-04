@@ -93,6 +93,47 @@ describe('holidayapi', () => {
         expect(await holidayapi.countries()).toStrictEqual(expectedResponse);
       });
 
+      it('should return only countries with public holidays', async () => {
+        const expectedResponse = {
+          status: 200,
+          requests: {
+            used: 1000,
+            available: 9000,
+            resets: '2019-10-01 00:00:00',
+          },
+          countries: [
+            {
+              code: 'ST',
+              name: 'Sao Tome and Principe',
+              languages: ['pt'],
+              codes: {
+                'alpha-2': 'ST',
+                'alpha-3': 'STP',
+                numeric: 678,
+              },
+              flag: 'https://www.countryflags.io/ST/flat/64.png',
+              subdivisions: [
+                {
+                  code: 'ST-P',
+                  name: 'Príncipe',
+                  languages: ['pt'],
+                },
+                {
+                  code: 'ST-S',
+                  name: 'São Tomé',
+                  languages: ['pt'],
+                },
+              ],
+            },
+          ],
+        };
+
+        mockRequest.get(`${basePath}&public=true`).reply(200, expectedResponse);
+        expect(await holidayapi.countries({
+          public: true,
+        })).toStrictEqual(expectedResponse);
+      });
+
       it('should return one country', async () => {
         const expectedResponse = {
           status: 200,

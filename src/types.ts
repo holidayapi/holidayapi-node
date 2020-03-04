@@ -18,6 +18,7 @@ export type Requests = CountriesRequest | HolidaysRequest | LanguagesRequest;
 
 export type CountriesRequest = Request & {
   country?: string,
+  public?: boolean,
 };
 
 export type HolidaysRequest = Request & {
