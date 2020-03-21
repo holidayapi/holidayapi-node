@@ -1,6 +1,6 @@
 {
   "name": "holidayapi",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Official Node.js library for Holiday API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,19 +24,19 @@
     "node": ">= 8.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.2",
+    "@types/jest": "^25.1.4",
     "@types/nock": "^11.1.0",
-    "@types/node": "^13.7.1",
+    "@types/node": "^13.9.2",
     "@types/node-fetch": "^2.5.4",
-    "@typescript-eslint/eslint-plugin": "^2.19.2",
-    "@typescript-eslint/parser": "^2.19.2",
-    "coveralls": "^3.0.9",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "coveralls": "^3.0.11",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jest": "^23.7.0",
+    "eslint-plugin-jest": "^23.8.2",
     "jest": "^25.1.0",
-    "nock": "^12.0.2",
+    "nock": "^12.0.3",
     "ts-jest": "^25.2.0",
     "typescript": "^3.7.5"
   },
@@ -45,7 +45,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "lint": "eslint --ext .js,.ts src/ tests/",
-    "test": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "lint": "eslint --ext .js,.ts src tests",
+    "test": "jest",
+    "test:coverage": "jest --coverage --coverageReporters=text-lcov | coveralls"
   }
 }
