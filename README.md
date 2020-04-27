@@ -9,28 +9,13 @@ Official Node.js library for [Holiday API](https://holidayapi.com) providing
 quick and easy access to holiday information from applications written in
 server-side JavaScript.
 
-## Migrating from 2.x
-
-In an attempt to stay current with both our development and production
-dependencies, the decision was made to drop testing and advertised compatibility
-with Node.js versions that are outside of their maintenance window.
-
-For the 3.x release, testing for Node.js 13.x was added while testing for Node.js
-7.x, 9.x and 11.x was dropped. Even though these older versions may still
-continue to work, they become harder to test against as our dependencies improve
-and drop support for those versions.
-
-In the future, when compatibility changes, we will increment the major version
-number of the release as well as document the additions and deprecations in the
-release notes.
-
 ## Migrating from 1.x
 
 Please note, version 2.x of this library is a full rewrite of the 1.x series in
 TypeScript. The interfacing to the library has been simplified and existing
 applications upgrading to 2.x will need to be updated.
 
-| Version 1.x Syntax (Old)                          | Version 2.x Syntax (New)                          |
+| Version 1.x Syntax (Old)                          | Version 2.x+ Syntax (New)                         |
 |---------------------------------------------------|---------------------------------------------------|
 | `const HolidayAPI = require('node-holidayapi');`  | `import { HolidayAPI } from 'holidayapi';`        |
 | `const holidayApi = new HolidayAPI(key).v1;`      | `const holidayApi = new HolidayAPI({ key });`     |
