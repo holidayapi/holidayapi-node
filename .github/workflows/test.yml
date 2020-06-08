@@ -1,0 +1,31 @@
+name: Test
+on: [push, pull_request]
+jobs:
+  test:
+    name: Test Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['10', '12', '14']
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Node.js Version
+      run: node --version
+    - name: NPM Version
+      run: npm --version
+    - name: Install Dependencies
+      run: npm install
+    - name: Run Linter
+      run: npm run lint
+    - name: Run Tests
+      run: npm run test:coverage
+    - name: Upload Coverage
+      if: ${{ matrix.node-version == '14' }}
+      uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage/lcov.info
