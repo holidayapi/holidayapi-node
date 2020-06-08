@@ -47,6 +47,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.HolidayAPI = void 0;
 var node_fetch_1 = require("node-fetch");
 var url_1 = require("url");
 var HolidayAPI = (function () {

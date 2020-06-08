@@ -2,27 +2,12 @@
 
 [![License](https://img.shields.io/npm/l/holidayapi-node?style=for-the-badge)](https://github.com/holidayapi/holidayapi-node/blob/master/LICENSE)
 ![Node Version](https://img.shields.io/node/v/holidayapi?style=for-the-badge)
-![Build Status](https://img.shields.io/travis/holidayapi/holidayapi-node/master?style=for-the-badge)
-[![Coverage Status](https://img.shields.io/coveralls/github/holidayapi/holidayapi-node/master?style=for-the-badge)](https://coveralls.io/github/holidayapi/holidayapi-node?branch=master)
+[![Test Status](https://img.shields.io/github/workflow/status/holidayapi/holidayapi-node/Test?style=for-the-badge)](https://github.com/holidayapi/holidayapi-node/actions)
+[![Code Coverage](https://img.shields.io/codecov/c/github/holidayapi/holidayapi-node?style=for-the-badge)](https://codecov.io/gh/holidayapi/holidayapi-node)
 
 Official Node.js library for [Holiday API](https://holidayapi.com) providing
 quick and easy access to holiday information from applications written in
 server-side JavaScript.
-
-## Migrating from 1.x
-
-Please note, version 2.x of this library is a full rewrite of the 1.x series in
-TypeScript. The interfacing to the library has been simplified and existing
-applications upgrading to 2.x will need to be updated.
-
-| Version 1.x Syntax (Old)                          | Version 2.x+ Syntax (New)                         |
-|---------------------------------------------------|---------------------------------------------------|
-| `const HolidayAPI = require('node-holidayapi');`  | `import { HolidayAPI } from 'holidayapi';`        |
-| `const holidayApi = new HolidayAPI(key).v1;`      | `const holidayApi = new HolidayAPI({ key });`     |
-| `holidayApi.holidays(params, (err, data) => {});` | `holidayApi.holidays(params).then((data) => {});` |
-
-Version 1.x of the library can still be found
-[here](https://github.com/joshtronic/node-holidayapi).
 
 ## Documentation
 
