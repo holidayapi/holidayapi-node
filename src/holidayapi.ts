@@ -8,8 +8,17 @@
 import fetch from 'node-fetch';
 import { URL, URLSearchParams } from 'url';
 import {
-  CountriesRequest, CountriesResponse, Endpoint, HolidaysResponse,
-  HolidaysRequest, LanguagesRequest, LanguagesResponse, Requests, Responses,
+  CountriesRequest,
+  CountriesResponse,
+  Endpoint,
+  HolidaysRequest,
+  HolidaysResponse,
+  LanguagesRequest,
+  LanguagesResponse,
+  Requests,
+  Responses,
+  WorkdayRequest,
+  WorkdayResponse,
 } from './types';
 
 export class HolidayAPI {
@@ -27,7 +36,6 @@ export class HolidayAPI {
     if (!uuidRegExp.test(key)) {
       throw new Error(`Invalid API key, ${getYours}`);
     }
-
 
     if (version !== 1) {
       throw new Error('Invalid version number, expected "1"');
@@ -79,5 +87,19 @@ export class HolidayAPI {
 
   async languages(request?: LanguagesRequest): Promise<LanguagesResponse> {
     return this.request('languages', request);
+  }
+
+  async workday(request: WorkdayRequest = {}): Promise<WorkdayResponse> {
+    if (!request.country) {
+      throw new Error('Missing country');
+    } else if (!request.start) {
+      throw new Error('Missing start date');
+    } else if (!request.days) {
+      throw new Error('Missing days');
+    } else if (request.days < 1) {
+      throw new Error('Days must be 1 or more');
+    }
+
+    return this.request('workday', request);
   }
 }
