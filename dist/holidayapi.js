@@ -132,6 +132,26 @@ var HolidayAPI = (function () {
             });
         });
     };
+    HolidayAPI.prototype.workday = function (request) {
+        if (request === void 0) { request = {}; }
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                if (!request.country) {
+                    throw new Error('Missing country');
+                }
+                else if (!request.start) {
+                    throw new Error('Missing start date');
+                }
+                else if (!request.days) {
+                    throw new Error('Missing days');
+                }
+                else if (request.days < 1) {
+                    throw new Error('Days must be 1 or more');
+                }
+                return [2, this.request('workday', request)];
+            });
+        });
+    };
     return HolidayAPI;
 }());
 exports.HolidayAPI = HolidayAPI;
