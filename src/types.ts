@@ -19,8 +19,6 @@ type Request = {
   search?: string;
 };
 
-export type Requests = CountriesRequest | HolidaysRequest | LanguagesRequest | WorkdayRequest;
-
 export type CountriesRequest = Request & {
   country?: string;
   public?: boolean;
@@ -57,8 +55,6 @@ export type Response = {
   status: number;
   error?: string;
 };
-
-export type Responses = CountriesResponse | HolidaysResponse | LanguagesResponse | WorkdayResponse;
 
 export type CountriesResponse = Response & {
   countries?: {
@@ -108,3 +104,17 @@ export type WorkdayResponse = Response & {
     weekday: Weekday;
   }
 };
+
+export type Requests = (
+  | CountriesRequest
+  | HolidaysRequest
+  | LanguagesRequest
+  | WorkdayRequest
+);
+
+export type Responses = (
+  | CountriesResponse
+  | HolidaysResponse
+  | LanguagesResponse
+  | WorkdayResponse
+);
