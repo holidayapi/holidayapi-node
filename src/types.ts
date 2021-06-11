@@ -1,11 +1,11 @@
 /**
- * Copyright (c) Gravity Boulevard; LLC
+ * Copyright (c) Gravity Boulevard, LLC
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-export type Endpoint = 'countries' | 'holidays' | 'languages' | 'workday';
+export type Endpoint = 'countries' | 'holidays' | 'languages' | 'workday' | 'workdays';
 
 type Weekday = {
   name: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
@@ -44,6 +44,12 @@ export type WorkdayRequest = Request & {
   country?: string;
   start?: string;
   days?: number;
+};
+
+export type WorkdaysRequest = Request & {
+  country?: string;
+  start?: string;
+  end?: string;
 };
 
 export type Response = {
@@ -105,11 +111,16 @@ export type WorkdayResponse = Response & {
   }
 };
 
+export type WorkdaysResponse = Response & {
+  workdays?: number;
+};
+
 export type Requests = (
   | CountriesRequest
   | HolidaysRequest
   | LanguagesRequest
   | WorkdayRequest
+  | WorkdaysRequest
 );
 
 export type Responses = (
@@ -117,4 +128,5 @@ export type Responses = (
   | HolidaysResponse
   | LanguagesResponse
   | WorkdayResponse
+  | WorkdaysResponse
 );
