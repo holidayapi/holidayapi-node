@@ -19,6 +19,8 @@ import {
   Responses,
   WorkdayRequest,
   WorkdayResponse,
+  WorkdaysRequest,
+  WorkdaysResponse,
 } from './types';
 
 export class HolidayAPI {
@@ -101,5 +103,17 @@ export class HolidayAPI {
     }
 
     return this.request('workday', request);
+  }
+
+  async workdays(request: WorkdaysRequest = {}): Promise<WorkdaysResponse> {
+    if (!request.country) {
+      throw new Error('Missing country');
+    } else if (!request.start) {
+      throw new Error('Missing start date');
+    } else if (!request.end) {
+      throw new Error('Missing end date');
+    }
+
+    return this.request('workdays', request);
   }
 }

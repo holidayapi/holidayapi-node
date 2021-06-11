@@ -607,5 +607,88 @@ describe('holidayapi', () => {
         }
       });
     });
+
+    describe('/v1/workdays', () => {
+      const basePath = `/workdays?key=${key}`;
+
+      it('should return workdays', async () => {
+        const expectedResponse = {
+          status: 200,
+          requests: {
+            used: 1000,
+            available: 9000,
+            resets: '2019-10-01 00:00:00',
+          },
+          workdays: 7,
+        };
+
+        mockRequest.get(`${basePath}&country=US&start=2019-07-01&end=2019-07-10`)
+          .reply(200, expectedResponse);
+
+        expect(await holidayapi.workdays({
+          country: 'US',
+          start: '2019-07-01',
+          end: '2019-07-10',
+        })).toStrictEqual(expectedResponse);
+      });
+
+      it('should error when country is missing', async () => {
+        expect.assertions(1);
+
+        try {
+          await holidayapi.workdays();
+        } catch (err) {
+          expect(err.message).toMatch(/missing country/i);
+        }
+      });
+
+      it('should error when start is missing', async () => {
+        expect.assertions(1);
+
+        try {
+          await holidayapi.workdays({ country: 'US' });
+        } catch (err) {
+          expect(err.message).toMatch(/missing start date/i);
+        }
+      });
+
+      it('should error when end is missing', async () => {
+        expect.assertions(1);
+
+        try {
+          await holidayapi.workdays({ country: 'US', start: '2019-07-01' });
+        } catch (err) {
+          expect(err.message).toMatch(/missing end date/i);
+        }
+      });
+
+      it('should raise 4xx errors', async () => {
+        const expectedResponse = {
+          status: 429,
+          error: 'Rate limit exceeded',
+        };
+
+        expect.assertions(1);
+        mockRequest.get(`${basePath}&country=US&start=2019-07-01&end=2019-07-10`)
+          .reply(429, expectedResponse);
+
+        try {
+          await holidayapi.workdays({ country: 'US', start: '2019-07-01', end: '2019-07-10' });
+        } catch (err) {
+          expect(err.message).toMatch(/rate limit exceeded/i);
+        }
+      });
+
+      it('should raise 5xx errors', async () => {
+        expect.assertions(1);
+        mockRequest.get(`${basePath}&country=US&start=2019-07-01&end=2019-07-10`).reply(500);
+
+        try {
+          await holidayapi.workdays({ country: 'US', start: '2019-07-01', end: '2019-07-10' });
+        } catch (err) {
+          expect(err.message).toMatch(/internal server error/i);
+        }
+      });
+    });
   });
 });

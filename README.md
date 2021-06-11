@@ -251,3 +251,15 @@ holidayApi.workday({
   days: 7,
 });
 ```
+
+### Workdays
+
+#### Fetch number of workdays between two dates
+
+```javascript
+holidayApi.workday({
+  country: 'US',
+  start: '2019-07-01',
+  end: '2019-07-10',
+});
+```
