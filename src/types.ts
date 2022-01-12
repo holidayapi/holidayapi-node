@@ -7,7 +7,7 @@
 
 export type Endpoint = 'countries' | 'holidays' | 'languages' | 'workday' | 'workdays';
 
-type Weekday = {
+export type Weekday = {
   name: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
   numeric: 1 | 2 | 3 | 4 | 5 | 6 | 7;
 };
@@ -55,7 +55,7 @@ export type WorkdaysRequest = Request & {
 export type Response = {
   requests: {
     available: number;
-    resets: Date;
+    resets: string;
     used: number;
   };
   status: number;
@@ -88,9 +88,9 @@ export type CountriesResponse = Response & {
 export type HolidaysResponse = Response & {
   holidays?: {
     country: string;
-    date: Date;
+    date: string;
     name: string;
-    observed: Date;
+    observed: string;
     public: boolean;
     uuid: string;
     subdivisions?: string[];
@@ -106,7 +106,7 @@ export type LanguagesResponse = Response & {
 
 export type WorkdayResponse = Response & {
   workday?: {
-    date: Date;
+    date: string;
     weekday: Weekday;
   }
 };
