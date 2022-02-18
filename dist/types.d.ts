@@ -1,5 +1,5 @@
-export declare type Endpoint = 'countries' | 'holidays' | 'languages' | 'workday';
-declare type Weekday = {
+export declare type Endpoint = 'countries' | 'holidays' | 'languages' | 'workday' | 'workdays';
+export declare type Weekday = {
     name: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
     numeric: 1 | 2 | 3 | 4 | 5 | 6 | 7;
 };
@@ -9,7 +9,6 @@ declare type Request = {
     pretty?: boolean;
     search?: string;
 };
-export declare type Requests = CountriesRequest | HolidaysRequest | LanguagesRequest | WorkdayRequest;
 export declare type CountriesRequest = Request & {
     country?: string;
     public?: boolean;
@@ -33,16 +32,20 @@ export declare type WorkdayRequest = Request & {
     start?: string;
     days?: number;
 };
+export declare type WorkdaysRequest = Request & {
+    country?: string;
+    start?: string;
+    end?: string;
+};
 export declare type Response = {
     requests: {
         available: number;
-        resets: Date;
+        resets: string;
         used: number;
     };
     status: number;
     error?: string;
 };
-export declare type Responses = CountriesResponse | HolidaysResponse | LanguagesResponse | WorkdayResponse;
 export declare type CountriesResponse = Response & {
     countries?: {
         code: string;
@@ -68,9 +71,9 @@ export declare type CountriesResponse = Response & {
 export declare type HolidaysResponse = Response & {
     holidays?: {
         country: string;
-        date: Date;
+        date: string;
         name: string;
-        observed: Date;
+        observed: string;
         public: boolean;
         uuid: string;
         subdivisions?: string[];
@@ -84,8 +87,13 @@ export declare type LanguagesResponse = Response & {
 };
 export declare type WorkdayResponse = Response & {
     workday?: {
-        date: Date;
+        date: string;
         weekday: Weekday;
     };
 };
+export declare type WorkdaysResponse = Response & {
+    workdays?: number;
+};
+export declare type Requests = (CountriesRequest | HolidaysRequest | LanguagesRequest | WorkdayRequest | WorkdaysRequest);
+export declare type Responses = (CountriesResponse | HolidaysResponse | LanguagesResponse | WorkdayResponse | WorkdaysResponse);
 export {};

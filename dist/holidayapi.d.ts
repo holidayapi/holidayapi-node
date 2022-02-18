@@ -1,4 +1,4 @@
-import { CountriesRequest, CountriesResponse, HolidaysRequest, HolidaysResponse, LanguagesRequest, LanguagesResponse, WorkdayRequest, WorkdayResponse } from './types';
+import { CountriesRequest, CountriesResponse, HolidaysRequest, HolidaysResponse, LanguagesRequest, LanguagesResponse, WorkdayRequest, WorkdayResponse, WorkdaysRequest, WorkdaysResponse } from './types';
 export declare class HolidayAPI {
     baseUrl: string;
     key: string;
@@ -12,4 +12,5 @@ export declare class HolidayAPI {
     holidays(request?: HolidaysRequest): Promise<HolidaysResponse>;
     languages(request?: LanguagesRequest): Promise<LanguagesResponse>;
     workday(request?: WorkdayRequest): Promise<WorkdayResponse>;
+    workdays(request?: WorkdaysRequest): Promise<WorkdaysResponse>;
 }
