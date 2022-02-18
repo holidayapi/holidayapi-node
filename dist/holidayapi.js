@@ -152,6 +152,23 @@ var HolidayAPI = (function () {
             });
         });
     };
+    HolidayAPI.prototype.workdays = function (request) {
+        if (request === void 0) { request = {}; }
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                if (!request.country) {
+                    throw new Error('Missing country');
+                }
+                else if (!request.start) {
+                    throw new Error('Missing start date');
+                }
+                else if (!request.end) {
+                    throw new Error('Missing end date');
+                }
+                return [2, this.request('workdays', request)];
+            });
+        });
+    };
     return HolidayAPI;
 }());
 exports.HolidayAPI = HolidayAPI;
