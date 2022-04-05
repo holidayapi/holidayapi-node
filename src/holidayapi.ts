@@ -56,7 +56,7 @@ export class HolidayAPI {
 
   private async request(endpoint: Endpoint, request?: Requests): Promise<Responses> {
     const response = await fetch(this.createUrl(endpoint, request));
-    let payload;
+    let payload: any;
 
     try {
       payload = await response.json();
@@ -76,14 +76,6 @@ export class HolidayAPI {
   }
 
   async holidays(request: HolidaysRequest = {}): Promise<HolidaysResponse> {
-    if (!request.country) {
-      throw new Error('Missing country');
-    } else if (!request.year) {
-      throw new Error('Missing year');
-    } else if (request.previous && request.upcoming) {
-      throw new Error('Previous and upcoming are mutually exclusive');
-    }
-
     return this.request('holidays', request);
   }
 
@@ -92,28 +84,10 @@ export class HolidayAPI {
   }
 
   async workday(request: WorkdayRequest = {}): Promise<WorkdayResponse> {
-    if (!request.country) {
-      throw new Error('Missing country');
-    } else if (!request.start) {
-      throw new Error('Missing start date');
-    } else if (!request.days) {
-      throw new Error('Missing days');
-    } else if (request.days < 1) {
-      throw new Error('Days must be 1 or more');
-    }
-
     return this.request('workday', request);
   }
 
   async workdays(request: WorkdaysRequest = {}): Promise<WorkdaysResponse> {
-    if (!request.country) {
-      throw new Error('Missing country');
-    } else if (!request.start) {
-      throw new Error('Missing start date');
-    } else if (!request.end) {
-      throw new Error('Missing end date');
-    }
-
     return this.request('workdays', request);
   }
 }
