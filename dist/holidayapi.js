@@ -56,15 +56,15 @@ var HolidayAPI = (function () {
         var getYours = 'get yours at HolidayAPI.com';
         var uuidRegExp = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/;
         if (!key) {
-            throw new Error("Missing API key, " + getYours);
+            throw new Error("Missing API key, ".concat(getYours));
         }
         if (!uuidRegExp.test(key)) {
-            throw new Error("Invalid API key, " + getYours);
+            throw new Error("Invalid API key, ".concat(getYours));
         }
         if (version !== 1) {
             throw new Error('Invalid version number, expected "1"');
         }
-        this.baseUrl = "https://holidayapi.com/v" + version + "/";
+        this.baseUrl = "https://holidayapi.com/v".concat(version, "/");
         this.key = key;
     }
     HolidayAPI.prototype.createUrl = function (endpoint, request) {
@@ -78,7 +78,7 @@ var HolidayAPI = (function () {
             var response, payload, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4, node_fetch_1.default(this.createUrl(endpoint, request))];
+                    case 0: return [4, (0, node_fetch_1.default)(this.createUrl(endpoint, request))];
                     case 1:
                         response = _a.sent();
                         _a.label = 2;
@@ -112,15 +112,6 @@ var HolidayAPI = (function () {
         if (request === void 0) { request = {}; }
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                if (!request.country) {
-                    throw new Error('Missing country');
-                }
-                else if (!request.year) {
-                    throw new Error('Missing year');
-                }
-                else if (request.previous && request.upcoming) {
-                    throw new Error('Previous and upcoming are mutually exclusive');
-                }
                 return [2, this.request('holidays', request)];
             });
         });
@@ -136,18 +127,6 @@ var HolidayAPI = (function () {
         if (request === void 0) { request = {}; }
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                if (!request.country) {
-                    throw new Error('Missing country');
-                }
-                else if (!request.start) {
-                    throw new Error('Missing start date');
-                }
-                else if (!request.days) {
-                    throw new Error('Missing days');
-                }
-                else if (request.days < 1) {
-                    throw new Error('Days must be 1 or more');
-                }
                 return [2, this.request('workday', request)];
             });
         });
@@ -156,15 +135,6 @@ var HolidayAPI = (function () {
         if (request === void 0) { request = {}; }
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                if (!request.country) {
-                    throw new Error('Missing country');
-                }
-                else if (!request.start) {
-                    throw new Error('Missing start date');
-                }
-                else if (!request.end) {
-                    throw new Error('Missing end date');
-                }
                 return [2, this.request('workdays', request)];
             });
         });
