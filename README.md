@@ -2,7 +2,6 @@
 
 [![License](https://img.shields.io/npm/l/holidayapi-node?style=for-the-badge)](https://github.com/holidayapi/holidayapi-node/blob/master/LICENSE)
 ![Node Version](https://img.shields.io/node/v/holidayapi?style=for-the-badge)
-[![Test Status](https://img.shields.io/github/workflow/status/holidayapi/holidayapi-node/Test?style=for-the-badge)](https://github.com/holidayapi/holidayapi-node/actions)
 [![Code Coverage](https://img.shields.io/codecov/c/github/holidayapi/holidayapi-node?style=for-the-badge)](https://codecov.io/gh/holidayapi/holidayapi-node)
 
 Official Node.js library for [Holiday API](https://holidayapi.com) providing

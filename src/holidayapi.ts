@@ -75,7 +75,7 @@ export class HolidayAPI {
     return this.request('countries', request);
   }
 
-  async holidays(request: HolidaysRequest = {}): Promise<HolidaysResponse> {
+  async holidays(request?: HolidaysRequest): Promise<HolidaysResponse> {
     return this.request('holidays', request);
   }
 
@@ -83,11 +83,11 @@ export class HolidayAPI {
     return this.request('languages', request);
   }
 
-  async workday(request: WorkdayRequest = {}): Promise<WorkdayResponse> {
+  async workday(request?: WorkdayRequest): Promise<WorkdayResponse> {
     return this.request('workday', request);
   }
 
-  async workdays(request: WorkdaysRequest = {}): Promise<WorkdaysResponse> {
+  async workdays(request?: WorkdaysRequest): Promise<WorkdaysResponse> {
     return this.request('workdays', request);
   }
 }
