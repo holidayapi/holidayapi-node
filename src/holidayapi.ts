@@ -5,8 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import fetch from 'node-fetch';
-import { URL, URLSearchParams } from 'url';
 import {
   CountriesRequest,
   CountriesResponse,

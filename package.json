@@ -39,9 +39,6 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
   },
-  "dependencies": {
-    "node-fetch": "^2.7.0"
-  },
   "scripts": {
     "build": "tsc",
     "lint": "eslint --ext .js,.ts src tests",
