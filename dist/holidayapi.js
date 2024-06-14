@@ -48,8 +48,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HolidayAPI = void 0;
-var node_fetch_1 = require("node-fetch");
-var url_1 = require("url");
 var HolidayAPI = (function () {
     function HolidayAPI(_a) {
         var key = _a.key, _b = _a.version, version = _b === void 0 ? 1 : _b;
@@ -69,8 +67,8 @@ var HolidayAPI = (function () {
     }
     HolidayAPI.prototype.createUrl = function (endpoint, request) {
         var parameters = __assign({ key: this.key }, request);
-        var url = new url_1.URL(endpoint, this.baseUrl);
-        url.search = new url_1.URLSearchParams(parameters).toString();
+        var url = new URL(endpoint, this.baseUrl);
+        url.search = new URLSearchParams(parameters).toString();
         return url.toString();
     };
     HolidayAPI.prototype.request = function (endpoint, request) {
@@ -78,7 +76,7 @@ var HolidayAPI = (function () {
             var response, payload, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4, (0, node_fetch_1.default)(this.createUrl(endpoint, request))];
+                    case 0: return [4, fetch(this.createUrl(endpoint, request))];
                     case 1:
                         response = _a.sent();
                         _a.label = 2;
