@@ -6,7 +6,6 @@
  */
 
 import fetch from 'node-fetch';
-import { URL, URLSearchParams } from 'url';
 import {
   CountriesRequest,
   CountriesResponse,
