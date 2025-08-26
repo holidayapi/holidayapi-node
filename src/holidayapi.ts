@@ -59,7 +59,7 @@ export class HolidayAPI {
 
     try {
       payload = await response.json();
-    } catch (err) {
+    } catch {
       payload = {};
     }
 
