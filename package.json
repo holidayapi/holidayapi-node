@@ -1,6 +1,6 @@
 {
   "name": "holidayapi",
-  "version": "7.1.0",
+  "version": "8.0.0",
   "description": "Official Node.js library for Holiday API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://holidayapi.com",
   "engines": {
-    "node": ">= 18.0.0"
+    "node": ">= 20.0.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.6",
