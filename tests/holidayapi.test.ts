@@ -11,7 +11,7 @@ describe('holidayapi', () => {
       expect(() => {
         const holidayapi = new HolidayAPI({});
         expect(holidayapi.key).toBeUndefined();
-      }).toThrowError(/missing api key/i);
+      }).toThrow(/missing api key/i);
     });
 
     it('should error when key is invalid format', () => {
@@ -21,7 +21,7 @@ describe('holidayapi', () => {
           key: 'zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz',
         });
         expect(holidayapi.key).toBeUndefined();
-      }).toThrowError(/invalid api key/i);
+      }).toThrow(/invalid api key/i);
     });
 
     it('should error when version is too low', () => {
@@ -29,7 +29,7 @@ describe('holidayapi', () => {
       expect(() => {
         const holidayapi = new HolidayAPI({ key, version: 0 });
         expect(holidayapi.baseUrl).toBeUndefined();
-      }).toThrowError(/invalid version/i);
+      }).toThrow(/invalid version/i);
     });
 
     it('should error when version is too high', () => {
@@ -37,7 +37,7 @@ describe('holidayapi', () => {
       expect(() => {
         const holidayapi = new HolidayAPI({ key, version: 2 });
         expect(holidayapi.baseUrl).toBeUndefined();
-      }).toThrowError(/invalid version/i);
+      }).toThrow(/invalid version/i);
     });
 
     it('should assign class members', () => {
