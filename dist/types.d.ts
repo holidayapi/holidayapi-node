@@ -46,44 +46,48 @@ export type Response = {
     status: number;
     error?: string;
 };
+export type Subdivision = {
+    code: string;
+    languages: string[];
+    name: string;
+};
+export type Country = {
+    code: string;
+    codes: {
+        'alpha-2': string;
+        'alpha-3': string;
+        numeric: string;
+    };
+    flag: string;
+    languages: string[];
+    name: string;
+    subdivisions: Subdivision[];
+    weekday: {
+        date: Weekday;
+        observed: Weekday;
+    };
+};
 export type CountriesResponse = Response & {
-    countries?: {
-        code: string;
-        codes: {
-            'alpha-2': string;
-            'alpha-3': string;
-            numeric: string;
-        };
-        flag: string;
-        languages: string[];
-        name: string;
-        subdivisions: {
-            code: string;
-            languages: string[];
-            name: string;
-        }[];
-        weekday: {
-            date: Weekday;
-            observed: Weekday;
-        };
-    }[];
+    countries?: Country[];
+};
+export type Holiday = {
+    country: string;
+    date: string;
+    name: string;
+    observed: string;
+    public: boolean;
+    uuid: string;
+    subdivisions?: string[];
 };
 export type HolidaysResponse = Response & {
-    holidays?: {
-        country: string;
-        date: string;
-        name: string;
-        observed: string;
-        public: boolean;
-        uuid: string;
-        subdivisions?: string[];
-    }[];
+    holidays?: Holiday[];
+};
+export type Language = {
+    code: string;
+    name: string;
 };
 export type LanguagesResponse = Response & {
-    languages?: {
-        code: string;
-        name: string;
-    }[];
+    languages?: Language[];
 };
 export type WorkdayResponse = Response & {
     workday?: {
